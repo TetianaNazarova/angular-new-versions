@@ -1,0 +1,157 @@
+<div class="top-menu">
+
+    <img class="logo"
+         src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+
+</div>
+
+<div
+  *ngIf="courses[1] as courseOne"
+  class="courses" #container>
+  <div class="courses">
+    <course-card *ngFor="let courseItem of courses; index as i;
+    first as isFirst; let isLast = last; let isEven = even; odd as isOdd"
+                 (courseSelected)="onCourseSelected($event)"
+                 [class.is-first]="isFirst"
+                 [class.is-last]="isLast"
+                 [class.is-even]="isEven"
+                 [class.is-odd]="isOdd"
+                 [cardIndex]="i + 1"
+                 [course]="courseItem"
+    >
+      <course-image [imageSrc]="courseItem.iconUrl"></course-image>
+    </course-card>
+  </div>
+
+  <course-card
+    #cardRef
+    (courseSelected)="onCourseSelected($event)"
+    [course]="courseOne"
+  >
+
+    <!--<div class="course-image" #courseImage>
+      <img  #courseImage width="300" alt="Angular Logo"
+           [src]="courseOne.iconUrl">
+    </div>-->
+
+
+   <!-- <h5>Total Lessons: 5</h5>-->
+
+    <course-image [imageSrc]="courseOne.iconUrl"></course-image>
+    <course-image [imageSrc]="courses[2].iconUrl"></course-image>
+    <course-image [imageSrc]="courses[3].iconUrl"></course-image>
+    <course-image [imageSrc]="courses[4].iconUrl"></course-image>
+    <course-image [imageSrc]="courses[5].iconUrl"></course-image>
+
+    <div class="course-description">
+      <h2>{{ course.longDescription }}</h2>
+    </div>
+
+    Edit Description: <textarea></textarea>
+  </course-card>
+
+  <course-card
+    #cardRef
+    (courseSelected)="onCourseSelected($event)"
+    [course]="courses[3]"
+  >
+    <h5>Total Lessons: 10</h5>
+  </course-card>
+
+</div>
+
+<button (click)="onCourseEdited()">Edit Courses</button>
+
+
+
+
+
+
+
+
+
+<!--
+
+<div class="top-menu">
+
+  <img class="logo"
+       src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+
+</div>
+
+
+<div class="demo pipes">
+  <div>Start Date: {{startDate | date: 'MMM dd yyyy' }}</div>
+
+  <div>{{title | titlecase}}</div>
+  <div>{{price | number: '3.3-5'}}</div>
+  <div>{{price | currency: 'EUR'}}</div>
+  <div>Percentage: {{rate | percent}}</div>
+</div>
+
+&lt;!&ndash;{{ courses | json }}&ndash;&gt;
+
+<div *ngFor="let pair of course | keyvalue">
+  Key: {{pair.key}}
+  Value: {{pair.value}}
+</div>
+
+&lt;!&ndash;<div class="courses">&ndash;&gt;
+&lt;!&ndash;&lt;!&ndash;  @for (course of courses | slice:0:2; track trackCourse; let index = $index; let count = $count;&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;  @for (course of courses; track trackCourse; let index = $index; let count = $count;&ndash;&gt;
+&lt;!&ndash;    let first = $first; let even = $even; let odd = $odd) {&ndash;&gt;
+
+&lt;!&ndash;&lt;!&ndash;    <h1>Count: {{count}}</h1>&ndash;&gt;&ndash;&gt;
+&lt;!&ndash;    <course-card&ndash;&gt;
+&lt;!&ndash;      (courseSelected)="onCourseSelected($event)"&ndash;&gt;
+&lt;!&ndash;      [index]="index"&ndash;&gt;
+&lt;!&ndash;      [course]="course"&ndash;&gt;
+&lt;!&ndash;      [class.is-first]="first"&ndash;&gt;
+&lt;!&ndash;      [class.is-last]="$last"&ndash;&gt;
+&lt;!&ndash;      [class.is-even]="even"&ndash;&gt;
+&lt;!&ndash;      [class.is-odd]="odd"&ndash;&gt;
+&lt;!&ndash;    />&ndash;&gt;
+&lt;!&ndash;  }&ndash;&gt;
+&lt;!&ndash;  @empty {&ndash;&gt;
+&lt;!&ndash;    <h1>No courses found!</h1>&ndash;&gt;
+&lt;!&ndash;  }&ndash;&gt;
+&lt;!&ndash; </div>&ndash;&gt;
+
+<div
+  *ngIf="courses[1] as courseOne"
+  class="courses" #container>
+  <course-card
+    #cardRef
+    (courseSelected)="onCourseSelected($event)"
+    [course]="courseOne"
+  />
+
+  &lt;!&ndash;  <course-card&ndash;&gt;
+  &lt;!&ndash;    #cardRef2&ndash;&gt;
+  &lt;!&ndash;    (courseSelected)="onCourseSelected($event)"&ndash;&gt;
+  &lt;!&ndash;    [course]="courses[2]"&ndash;&gt;
+  &lt;!&ndash;  />&ndash;&gt;
+
+  &lt;!&ndash;  <course-card (courseSelected)="onCourseSelected($event)"&ndash;&gt;
+  &lt;!&ndash;               [course]="courses[3]"&ndash;&gt;
+  &lt;!&ndash;  />&ndash;&gt;
+</div>
+
+<button (click)="onCourseEdited()">Edit Courses</button>
+
+<div class="courses">
+    <course-card *ngFor="let course of courses; index as i;
+    first as isFirst; let isLast = last; let isEven = even; odd as isOdd"
+      (courseSelected)="onCourseSelected($event)"
+      [class.is-first]="isFirst"
+      [class.is-last]="isLast"
+      [class.is-even]="isEven"
+      [class.is-odd]="isOdd"
+      [cardIndex]="i + 1"
+      [course]="course"
+    />
+</div>
+-->
+
+
+
